@@ -107,7 +107,17 @@
                 write(round - 1)
             }
 
-            write(9999)
+            //write(9999)
+            const fibonachi = (nb) => {
+                if (nb < 2) {
+                    return 2
+                }
+
+                return (fibonachi(nb - 1) + fibonachi(nb - 2))
+            }
+
+            console.log(fibonachi(42))
+
         </script>
     </main>
 
