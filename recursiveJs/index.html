@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Docstring app developers is free app to learn code">
+    <meta name="theme-color" content="#2A2A2A">
+    <title>Doctring</title>
+    <style>
+        @keyframes loader {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+
+        @keyframes progress {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .loader {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background ease linear 400ms;
+            flex-direction: column;
+        }
+
+        .loader::after {
+            display: block;
+            content: "";
+            width: 80px;
+            height: 80px;
+            border: solid 7px rgba(45, 73, 231, 1);
+            border-radius: 100%;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            animation: loader 800ms infinite linear;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader::before {
+            display: block;
+            content: "";
+            width: 100%;
+            height: 7px;
+            background: linear-gradient(to right, rgba(45, 73, 231, 1), rgb(221, 31, 221), rgb(175, 13, 94));
+            animation: progress 4s linear;
+            position: relative;
+            overflow: hidden;
+            position: absolute;
+            border-radius: 10px;
+            top: -2px;
+            left: -2px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    <main>
+        <h1>Docstring messenger</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi adipisci vero neque aperiam nemo nostrum
+            voluptas laboriosam pariatur, quia facere, deleniti quae voluptatum fugit sit reprehenderit temporibus
+            numquam? Obcaecati, velit?</p>
+        <section>
+            <h2>messenger test</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam ex laudantium rem reprehenderit itaque
+                architecto consequatur vitae, exercitationem recusandae eligendi dolorum amet assumenda, distinctio
+                numquam deserunt minima eum repudiandae molestias!</p>
+        </section>
+        <section>
+            <h2>best practice</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam ex laudantium rem reprehenderit itaque
+                architecto
+                consequatur vitae, exercitationem recusandae eligendi dolorum amet assumenda, distinctio numquam
+                deserunt minima
+                eum repudiandae molestias!</p>
+
+        </section>
+        <script>
+            const write = (round) => {
+                if (round == 0) {
+                    return;
+                }
+                document.write("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus odit voluptatum deleniti, sed voluptatem reprehenderit dolores rem quisquam commodi eveniet harum incidunt voluptates voluptas animi magnam officiis quos eligendi possimus.</p>")
+
+                write(round - 1)
+            }
+
+            write(9999)
+        </script>
+    </main>
+
+    <script>
+        window.onload = () => {
+            setTimeout(() => document.querySelector(".loader").remove(), 1200)
+            const employes = [
+                { name: "idriss", email: "idrisscoder@gmail.com", metier: "programmer", age: 18 },
+                { name: "franck", email: "franck@gmail.com", metier: "Maçon", age: 17 },
+                { name: "Bernadette", email: "bernadette@gmail.com", metier: "decoratrice", age: 37 },
+                { name: "Leugoue", email: "maltis@gmail.com", metier: "School", age: 18 }
+            ];
+
+            const sayHello = (users = employes, start = 0, msg = "Bonjour") => {
+                if (start >= (users.length))
+                    return;
+
+                console.log(`${msg} ${users[start].name}`);
+
+                sayHello(users, start + 1)
+                sayHello(users, start + 1, "nom ")
+            }
+
+            const fact = (nombre = 8) => {
+                if (nombre <= 0)
+                    return 1;
+
+
+                return nombre * fact(nombre - 1);
+            }
+
+            console.log(fact(3));
+        }
+
+        //sayHello();
+
+    </script>
+</body>
+
+</html>
